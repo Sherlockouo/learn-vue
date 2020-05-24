@@ -9,17 +9,16 @@
 <!--:style="{key,value}"-->
 <!--  <h2 :style="{fontSize:'50px'}">{{message}}</h2>-->
   <h2 :style="{fontSize:fontSize+'px',color:'red'}">{{message}}</h2>
-  <h2 :style="[baseStyle]">{{message}}</h2>
+  <h2 :style="getstyles()">{{message}}</h2>
 </div>
 
-<script src="../src/vue.min.js"></script>
+<script src="../../src/vue.min.js"></script>
 <script>
   const app = new Vue({
     el:"#app",
     data:{
       message:'message',
-      fontSize: 100,
-      baseStyle:{background:'blue'}
+      fontSize: 100
     },
     methods:{
       getstyles:function () {
