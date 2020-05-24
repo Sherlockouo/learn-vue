@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .flag{
+      color: #3364c6;
+    }
+  </style>
+</head>
+<body>
+
+<div id="app">
+  <ul>
+    <li v-for="m in movies" :style="getstyles()" @click="change()">{{m}}</li>
+  </ul>
+</div>
+
+<script src="../src/vue.min.js"></script>
+<script>
+  const app = new Vue({
+    el:"#app",
+    data:{
+      message:'message',
+      movies:['大鱼','露娜','乌拉'],
+      color:'red',
+      nocolor:'black'
+    },
+    methods:{
+      change:function () {
+          flag=true;
+      },
+      getstyles:function () {
+        if(this.flag ==true)
+          return {color: this.color};
+        else
+          return {color: this.nocolor}
+      }
+    }
+  })
+</script>
+</body>
+</html>
