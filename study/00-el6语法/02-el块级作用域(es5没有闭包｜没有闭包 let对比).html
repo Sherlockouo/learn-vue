@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<button>btn1</button>
+<button>btn2</button>
+<button>btn3</button>
+<button>btn4</button>
+
+
+<script>
+
+  //let 拥有作用域 所以不用使用闭包来实现
+  const bts = document.getElementsByTagName('button')
+
+  for(let i = 0;i<bts.length;i++){
+    bts[i].addEventListener('click',function () {
+      console.log('第'+i+'个let按钮被点击');
+    })
+  }
+
+
+  // var btns = document.getElementsByTagName('button')
+  // for(var i=0;i<btns.length;i++){
+  //   //打印的i为4，因为函数在点击的时候，i已经被用过了
+  //   // btns[i].addEventListener('click',function () {
+  //   //   console.log('第'+i+'个按钮被点击')
+  //   (function (i) {
+  //     btns[i].addEventListener('click',function () {
+  //       console.log('第'+i+'个按钮被点击')
+  //   })
+  //   })(i)//定义完之后立即调用
+  // }
+</script>
+</body>
+</html>

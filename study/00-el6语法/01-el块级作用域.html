@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<button>btn1</button>
+<button>btn2</button>
+<button>btn3</button>
+<button>btn4</button>
+
+
+<script>
+  //es5中的var是没有块级作用域的而es6的作用域是有作用域的
+  //es5之前因为if和for没有块级足作用域引起问题，现在很多时候，我们都借助于function来解决作用域的问题
+  //1 变量作用域：变量在什么范围内是可用的
+  // {
+  //   var name = 'why';
+  //   console.log(name)
+  // }
+  //   console.log(name)
+  //
+  // //2.没有块级作用域引起的问题
+  // var func;
+  // if(true){
+  //   //内部定义的东西
+  //   var name = 'shy';
+  //   func = function () {
+  //     console.log(name)
+  //   }
+  // }
+  // //外部也能访问
+  // console.log(name);
+  // func()
+
+  //3.没有块级作用域引起的问题：for的块级
+  //闭包可以解决，因为函数有作用域
+  var btns = document.getElementsByTagName('button')
+  for(var i=0;i<btns.length;i++){
+    //打印的i为4，因为函数在点击的时候，i已经被用过了
+    // btns[i].addEventListener('click',function () {
+    //   console.log('第'+i+'个按钮被点击')
+    (function (i) {
+      btns[i].addEventListener('click',function () {
+        console.log('第'+i+'个按钮被点击')
+    })
+    })(i)
+  }
+</script>
+</body>
+</html>
