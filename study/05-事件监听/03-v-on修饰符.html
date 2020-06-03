@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <div @click="divClick">
+    wula
+<!--stop阻止冒泡-->
+  <button @click.stop="btnClick">anniu</button>
+  </div>
+<!--2.prevent-->
+  <input type="submit" @click="submit">
+
+</div>
+
+<script src="../../src/vue.min.js"></script>
+<script>
+  const app = new Vue({
+    el:"#app",
+    data:{
+
+    },
+    methods:{
+      btnClick() {
+        console.log("点击btn");
+      },
+      divClick() {
+        console.log("divClick");
+      },
+      div
+    }
+  })
+</script>
+</body>
+</html>
