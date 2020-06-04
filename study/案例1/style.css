@@ -1,0 +1,27 @@
+table{
+  border: 1px solid aquamarine;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+th,td{
+  padding: 8px 16px;
+  border: 1px solid bisque;
+  text-align: left;
+}
+th{
+  background-color: beige;
+  color: black;
+  font-weight: 600;
+}
+#rm{
+  border-radius: 47px;
+  background: #cda7a7;
+  box-shadow:  -5px -5px 36px #7d6666,
+  5px 5px 36px #ffe8e8;
+}
+button{
+  border-radius: 47px;
+  background: #a2e8a1;
+  box-shadow:  -5px -5px 36px #638e62,
+  5px 5px 36px #e1ffe0;
+}

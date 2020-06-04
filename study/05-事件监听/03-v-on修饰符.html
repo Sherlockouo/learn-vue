@@ -12,7 +12,15 @@
   <button @click.stop="btnClick">anniu</button>
   </div>
 <!--2.prevent-->
-  <input type="submit" @click="submit">
+  <br>
+  <form action="/baidu">
+    <input type="submit" @click.prevent="submit">
+  </form>
+<!--3.监听某个按键-->
+  <input type="text" @keyup.enter="keyup">
+<!--4.once-->
+  <br>
+  <button @click.once="btn2">按钮2</button>
 
 </div>
 
@@ -24,13 +32,21 @@
 
     },
     methods:{
+      btn2(){
+        console.log("btn2");
+      },
       btnClick() {
         console.log("点击btn");
       },
       divClick() {
         console.log("divClick");
       },
-      div
+      submit() {
+        console.log("submit");
+      },
+      keyup(){
+        console.log("keyup");
+      }
     }
   })
 </script>
