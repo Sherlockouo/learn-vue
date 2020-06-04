@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+<!--  select用法-->
+  <select name="a" id="" v-model="num">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+  </select>
+  <h1>{{num}}</h1>
+  <h3>按住ctrl多选</h3>
+  <select name="ff" v-model="words" multiple>
+    <option value="qwe">qwe</option>
+    <option value="asd">asd</option>
+    <option value="zxc">zxc</option>
+  </select>
+  <h1>{{words}}</h1>
+  <br>
+  <label v-for="item in trees" :for="item">
+    <input type="checkbox" :value="item" :id="item" v-model="trees">{{item}}
+  </label>
+</div>
+
+<script src="../../src/vue.min.js"></script>
+<script>
+  const app = new Vue({
+    el:"#app",
+    data:{
+      num:'',
+      words:[],
+      trees:['梧桐','竹子','月桂','桃子']
+    }
+  })
+</script>
+</body>
+</html>

@@ -59,15 +59,3 @@ const app = new Vue({
   }
 })
 
-const nums = [2,4,5,5,1,7,12]
-//filter 中放入过滤函数，true则加入，false则丢弃 最后所有为true的为结果
-let newnums = nums.filter(function (n) {
-  return n>10
-})
-console.log(newnums);
-
-let n = nums.map(function (n) {
-  return n*2;
-})
-
-console.log(n);
