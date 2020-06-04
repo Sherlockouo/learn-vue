@@ -21,6 +21,10 @@
     <option value="zxc">zxc</option>
   </select>
   <h1>{{words}}</h1>
+  <br>
+  <label v-for="item in trees" :for="item">
+    <input type="checkbox" :value="item" :id="item" v-model="trees">{{item}}
+  </label>
 </div>
 
 <script src="../../src/vue.min.js"></script>
@@ -29,7 +33,8 @@
     el:"#app",
     data:{
       num:'',
-      words:[]
+      words:[],
+      trees:['梧桐','竹子','月桂','桃子']
     }
   })
 </script>
