@@ -11,52 +11,36 @@
 </style>
 <body>
 
-<!--  cloak 在vue没解析的时候不显示，解析完成之后再显示-->
-<div id="app" v-cloak>
-  <h1 align="center">{{sms}}</h1>
-<!--  v-once:只展示第一次的数据，不能更改-->
-  <h1 v-once align="center">{{sms}}</h1>
-<!--  将html解析之后再显示-->
-  <h1 v-html="html" align="center"></h1>
 
-<!--  v-text使用起来不太灵活，一般采用mustache的方式-->
-  <h1 v-text="text" align="center"></h1>
-<!--  下面这种"你好"会被覆盖掉-->
-  <h1 v-text="text" align="center">你好</h1>
-
-<!--  不做任何解析，原封不动的展示出来-->
-  <h1 v-pre align="center">你好</h1>
-
-  <h1  align="center">你好</h1>
-
-  <img  src="http://www.4kbizhi.com/d/file/2020/03/14/small224915qLyaG1584197355.jpg"/>
-
-
-
-
-
-  <button v-on:click="add">++</button>
-</div>
 
 <script src="../../src/vue.min.js" ></script>
 <script>
-  setTimeout(function f() {
-    const app = new Vue({
-      el: '#app',
-      data: {
-        sms: 'this is a message!',
-        text: '乌拉,你好',
-        num: 0,
-        html: '<a href="https://www.sherlockouo.com/">博客</a>'
-      },
-      methods: {
-        add: function () {
-          this.num++;
-          console.log("number++")
-        }
-      }
-    })
-  },1000);
+  const nums = [2,4,5,5,1,7,12]
+  //filter 中放入过滤函数，true则加入，false则丢弃 最后所有为true的为结果
+  let newnums = nums.filter(function (n) {
+    return n>10
+  })
+  console.log(newnums);
+
+  //map 映射处理
+  let n = nums.map(function (n) {
+    return n*2;
+  })
+  console.log(n);
+
+  let v = nums.reduce(function (pre,cur) {
+    return pre+cur
+  },0)
+  console.log("reduce:v = "+v);
+  //1.filter（）过滤数组 2.map（）处理数组 3.reduce（func(prevalue,curvalue),初始值）累加
+  let total = nums.filter(function (n) {
+    return n>=10
+  }).map(function (n) {
+    return n*2;
+  }).reduce(function (prevalue,n) {
+    return prevalue+n
+  },0)
+  console.log("total"+total)
 </script>
 </body>
 </html>

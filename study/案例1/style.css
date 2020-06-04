@@ -5,23 +5,20 @@ table{
 }
 th,td{
   padding: 8px 16px;
-  border: 1px solid bisque;
+  border: 1px solid #9ae2d8;
   text-align: left;
 }
 th{
-  background-color: beige;
+  background-color: #71b3d7;
   color: black;
   font-weight: 600;
 }
 #rm{
+  color: #20495e;
   border-radius: 47px;
-  background: #cda7a7;
-  box-shadow:  -5px -5px 36px #7d6666,
-  5px 5px 36px #ffe8e8;
+  background: rgba(224, 110, 158, 0.5);
 }
 button{
-  border-radius: 47px;
-  background: #a2e8a1;
-  box-shadow:  -5px -5px 36px #638e62,
-  5px 5px 36px #e1ffe0;
+  border-radius: 10px;
+  background: #eca83f;
 }
