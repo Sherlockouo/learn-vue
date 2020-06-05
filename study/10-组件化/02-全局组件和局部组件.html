@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn></cpn>
+  <cpn></cpn>
+  <innercpn></innercpn>
+</div>
+
+<script src="../../src/vue.min.js"></script>
+<script>
+
+  //1.创建
+  const cpn = Vue.extend({
+    template: `
+    <div>
+      <h2>标题</h2>
+      <h2>内容：乌拉</h2>
+    </div>
+    `
+  })
+  const cpn2 = Vue.extend({
+    template: `
+    <div>
+      <h2>标题2</h2>
+      <h2>内容2：乌拉</h2>
+    </div>
+    `
+  })
+
+  //2.1注册全局组件
+  Vue.component('cpn',cpn)
+
+  const app = new Vue({
+    el: "#app",
+    data: {
+
+    },
+    components:{
+      //2.2局部组件注册
+      innercpn:cpn2
+    }
+  })
+</script>
+</body>
+</html>
