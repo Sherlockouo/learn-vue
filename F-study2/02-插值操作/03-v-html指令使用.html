@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-html</title>
+</head>
+<body>
+<div id="app">
+    <h2>{{message}}</h2>
+    <!--v-text指令使用  -->
+    <h2 v-text="message"></h2>
+    <!--v-pre 不进行解析，直接显示内容  -->
+    <h2 v-pre>其实一点也不好</h2>
+
+    <h2 v-html="url"></h2>
+</div>
+<script src="../../src/vue.min.js"></script>
+<script>
+    const app=new Vue({
+        el:'#app',
+        data:{
+            message:'你好呀',
+            url:'<a href="http://www.baidu.com">百度一下</a>'
+        }
+    })
+</script>
+
+</body>
+</html>
