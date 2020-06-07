@@ -35,7 +35,13 @@
   })
 
   Vue.component('cpn2',{
-    template: `#cpn2`
+    template: `#cpn2`,
+    // 组件数据存放
+    data(){
+      return {
+      title:"data标题"
+      }
+    }
   })
 
   const app = new Vue({
