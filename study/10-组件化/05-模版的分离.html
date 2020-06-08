@@ -1,55 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
 <div id="app">
-  <cpn></cpn>
-  <cpn2></cpn2>
+    <cpn></cpn>
+    <cpn2></cpn2>
 </div>
 
 
 <!--1.通过script标签获取模版 type="text/x-handlebars-template" id=""-->
 <script type="text/x-handlebars-template" id="cpn">
-  <div>
-    <h1>标题</h1>
-    <h2>内容</h2>
-  </div>
+    <div>
+        <h1>标题</h1>
+        <h2>内容</h2>
+    </div>
 </script>
 
 <!--2.通过template标签获取模版-->
 <template id="cpn2">
-  <div>
-    <h1>template标签</h1>
-    <h2>内容</h2>
-  </div>
+    <div>
+        <h1>template标签</h1>
+        <h2>内容</h2>
+    </div>
 </template>
 
 <script src="../../src/vue.min.js"></script>
 <script>
 
-  Vue.component('cpn',{
-    template:`#cpn`
-  })
+    Vue.component('cpn', {
+        template: `#cpn`
+    })
 
-  Vue.component('cpn2',{
-    template: `#cpn2`,
-    // 组件数据存放
-    data(){
-      return {
-      title:"data标题"
-      }
-    }
-  })
+    Vue.component('cpn2', {
+        template: `#cpn2`,
+        // 组件数据存放
+        data() {
+            return {
+                title: "data标题"
+            }
+        }
+    })
 
-  const app = new Vue({
-    el:"#app",
-    data:{
-
-    }
-  })
+    const app = new Vue({
+        el: "#app",
+        data: {}
+    })
 </script>
 </body>
 </html>

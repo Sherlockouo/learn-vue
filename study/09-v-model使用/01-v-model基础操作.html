@@ -1,39 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
 <div id="app">
-  <label>
-<!--                   v-model实现数据双向绑定-->
-    <input type="text" v-model="message">
-    <br>
-<!--                   通过两次操作进行数据改变-->
-    <input type="text"  v-on:input="change">
-    <br>
-<!--    等同于v-model-->
-    <input type="text"  :value="message" v-on:input="message = $event.target.value">
+    <label>
+        <!--                   v-model实现数据双向绑定-->
+        <input type="text" v-model="message">
+        <br>
+        <!--                   通过两次操作进行数据改变-->
+        <input type="text" v-on:input="change">
+        <br>
+        <!--    等同于v-model-->
+        <input type="text" :value="message" v-on:input="message = $event.target.value">
 
 
-  </label> {{message}}
+    </label> {{message}}
 
 </div>
 
 <script src="../../src/vue.min.js"></script>
 <script>
-  const app = new Vue({
-    el:"#app",
-    data:{
-      message:"message"
-    },
-    methods:{
-      change(event){
-        this.message = event.target.value
-      }
-    }
-  })
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "message"
+        },
+        methods: {
+            change(event) {
+                this.message = event.target.value
+            }
+        }
+    })
 </script>
 </body>
 </html>

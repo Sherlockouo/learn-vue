@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
 //在es6开发中，优先使用const，只需要改变某一个标识符的时候才用let
 
 <script>
-  //1 const修饰的变量不能被修改
-  const name = 'constname';
+    //1 const修饰的变量不能被修改
+    const name = 'constname';
 
-  //2 const必须赋值才能使用
+    //2 const必须赋值才能使用
 
-  //3 常量对象的指向不能修改，但是对象内部的属性能够修改
-  const obj = {
-    name: 'bili',
-    age: 10,
-    height: 170
-  }
-  console.log(obj)
+    //3 常量对象的指向不能修改，但是对象内部的属性能够修改
+    const obj = {
+        name: 'bili',
+        age: 10,
+        height: 170
+    }
+    console.log(obj)
 
-  obj.age=22
+    obj.age = 22
 
-  console.log(obj)
+    console.log(obj)
 
 </script>
 </body>

@@ -10,13 +10,13 @@
 </div>
 <script src="../../src/vue.min.js"></script>
 <script>
-    const app=new Vue({
-        el:'#app',
-        data:{
-            firstName:'Fan',
-            lastName:'Jiangtao'
+    const app = new Vue({
+        el: '#app',
+        data: {
+            firstName: 'Fan',
+            lastName: 'Jiangtao'
         },
-        computed:{
+        computed: {
             fullName: {
                 set: function (newValue) {
                     const names = newValue.split(' ');

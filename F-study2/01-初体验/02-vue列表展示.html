@@ -8,24 +8,24 @@
 <!--展示列表信息！-->
 <div id="app">
     <!--展示列表信息！-->
-  <ul>
-      <li v-for="item in movies">{{item}}</li>
-  </ul>
+    <ul>
+        <li v-for="item in movies">{{item}}</li>
+    </ul>
 
     <!--计数器演示！-->
     <h2>当前计数:{{counter}}</h2>
     <button v-on:click="increment()">+</button>
-    <button v-on:click=""subbment()>-</button>
+    <button v-on:click="" subbment()>-</button>
 </div>
 
 <script src="../../src/vue.min.js"></script>
 <script>
-    const app=new Vue({
-        el:'#app',
-        data:{
-            message:'你好啊',
-            movies:['海贼王','天线宝宝','逃生','西游记'],
-            counter:0
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: '你好啊',
+            movies: ['海贼王', '天线宝宝', '逃生', '西游记'],
+            counter: 0
         }
     })
 </script>

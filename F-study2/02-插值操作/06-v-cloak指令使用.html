@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>v-cloak</title>
     <style>
-        [v-cloak]{
+        [v-cloak] {
             display: none;
         }
     </style>
@@ -17,14 +17,14 @@
 <script>
     //当vue解析之前，div中村子v-cloak
     //当vue解析之后，div中没有属性v-clock
-  setTimeout(function () {
-      const app=new Vue({
-          el:'#app',
-          data:{
-              message:'你好呀'
-          }
-      })
-  },1000)
+    setTimeout(function () {
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: '你好呀'
+            }
+        })
+    }, 1000)
 </script>
 </body>
 </html>

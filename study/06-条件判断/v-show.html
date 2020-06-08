@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
 <div id="app">
-<!--一次切换时选择v-if  v-if:当条件为false时，包含v-if指令的元素不会放到dom中-->
-<!--显示和隐藏频率高的时候选择v-show  v-show:当条件为false时，v-show只是把元素添加了个行内样式：dispaly：none-->
-  <h1 v-if="isShow">{{message}}</h1>
-  <h1 v-show="isShow">{{message}}</h1>
+    <!--一次切换时选择v-if  v-if:当条件为false时，包含v-if指令的元素不会放到dom中-->
+    <!--显示和隐藏频率高的时候选择v-show  v-show:当条件为false时，v-show只是把元素添加了个行内样式：dispaly：none-->
+    <h1 v-if="isShow">{{message}}</h1>
+    <h1 v-show="isShow">{{message}}</h1>
 </div>
 
 <script src="../src/vue.min.js"></script>
 <script>
-  const app = new Vue({
-    el:"#app",
-    data:{
-      message:"shit",
-      isShow:true
-    }
-  })
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "shit",
+            isShow: true
+        }
+    })
 </script>
 </body>
 </html>

@@ -12,16 +12,16 @@
 </div>
 <script src="../../src/vue.min.js"></script>
 <script>
-    const app=new Vue({
-        el:'#app',
-        data:{
-            message:'你好呀',
-            active:'aaaaa',
-            line:'bbbbb'
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: '你好呀',
+            active: 'aaaaa',
+            line: 'bbbbb'
         },
-        methods:{
-            getClasses:function () {
-                return [this.active,this.line]
+        methods: {
+            getClasses: function () {
+                return [this.active, this.line]
             }
         }
     })

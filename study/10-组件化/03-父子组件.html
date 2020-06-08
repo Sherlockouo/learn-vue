@@ -1,51 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
 <div id="app">
-  <cpn2></cpn2>
+    <cpn2></cpn2>
 </div>
 
 <script src="../../src/vue.min.js"></script>
 <script>
 
 
-  //子组件
-  const cpn = Vue.extend({
-    template: `
+    //子组件
+    const cpn = Vue.extend({
+        template: `
     <div>
       <h2>标题</h2>
       <h2>内容：乌拉</h2>
     </div>
     `
-  })
+    })
 
-  //父组件
-  const cpn2 = Vue.extend({
-    template: `
+    //父组件
+    const cpn2 = Vue.extend({
+        template: `
     <div>
       <h2>标题2</h2>
       <h2>内容2：乌拉</h2>
       <cpn></cpn>
     </div>
     `
-  })
+    })
 
-  Vue.component('cpn',cpn)
+    Vue.component('cpn', cpn)
 
-  //root组件
-  const app = new Vue({
-    el:"#app",
-    data:{
-
-    },
-    components:{
-      cpn2:cpn2
-    }
-  })
+    //root组件
+    const app = new Vue({
+        el: "#app",
+        data: {},
+        components: {
+            cpn2: cpn2
+        }
+    })
 </script>
 </body>
 </html>

@@ -1,65 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
 <div id="app">
-  <cpn :cmovies="movies" :cmessage="message" ></cpn>
+    <cpn :cmovies="movies" :cmessage="message"></cpn>
 </div>
 
 <template id="cpn">
-  <div>
-    <h1>{{cmovies}}</h1>
-    <ul>
-      <li v-for="item in cmovies">{{item}}</li>
-    </ul>
-    <h2>{{cmessage}}</h2>
-  </div>
+    <div>
+        <h1>{{cmovies}}</h1>
+        <ul>
+            <li v-for="item in cmovies">{{item}}</li>
+        </ul>
+        <h2>{{cmessage}}</h2>
+    </div>
 </template>
 
 <script src="../../src/vue.min.js"></script>
 <script>
 
-  //父传子：props
-  const cpn={
-    template:`#cpn`,
-    //1 以数组方式传
-    // props:['cmovies','cmessage'],
-    props:{
-      // cmovies:Array,//类型限制
-      cmovies:{
-        type:Array,
-        default() {
-          return []
+    //父传子：props
+    const cpn = {
+        template: `#cpn`,
+        //1 以数组方式传
+        // props:['cmovies','cmessage'],
+        props: {
+            // cmovies:Array,//类型限制
+            cmovies: {
+                type: Array,
+                default() {
+                    return []
+                }
+            },
+
+            // cmessage:String
+            cmessage: {
+                type: String,
+                //当属性未绑定任何父组件的值的时候 使用default
+                default: 'defaultMessage'
+            }
+        },
+        data() {
+            return {}
         }
-      },
-
-      // cmessage:String
-      cmessage:{
-        type:String,
-        //当属性未绑定任何父组件的值的时候 使用default
-        default:'defaultMessage'
-      }
-    },
-    data(){
-      return {
-
-      }
     }
-  }
 
-  const app = new Vue({
-    el:"#app",
-    data:{
-      message:'msg',
-      movies:['海王','大海','钢琴师']
-    },
-    components:{
-      cpn
-    }
-  })
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: 'msg',
+            movies: ['海王', '大海', '钢琴师']
+        },
+        components: {
+            cpn
+        }
+    })
 </script>
 </body>
 </html>

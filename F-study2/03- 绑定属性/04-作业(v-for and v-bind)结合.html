@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        .active{
+        .active {
             color: red;
         }
     </style>
@@ -12,22 +12,21 @@
 <body>
 <div id="app">
     <ul>
-        <li v-for="(m,index) in movies" v-bind:class="{active:isActive}"  v-on:click="onchange()">{{index}}{{m}}</li>
+        <li v-for="(m,index) in movies" v-bind:class="{active:isActive}" v-on:click="onchange()">{{index}}{{m}}</li>
 
     </ul>
 </div>
 <script src="../../src/vue.min.js"></script>
 <script>
-    const app=new Vue({
-        el:'#app',
-        data:{
-            movies:['天线宝宝','天龙八部','西游记'],
-            isActive:false
+    const app = new Vue({
+        el: '#app',
+        data: {
+            movies: ['天线宝宝', '天龙八部', '西游记'],
+            isActive: false
         },
         methods: {
-            onchange:function ()
-            {
-             this.isActive=!this.isActive
+            onchange: function () {
+                this.isActive = !this.isActive
             }
         }
     })

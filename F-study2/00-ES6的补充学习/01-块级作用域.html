@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>块级作用域</title>
+</head>
+<body>
+<div id="app">
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <button>按钮4</button>
+    <button>按钮5</button>
+
+</div>
+<script src="../../src/vue.min.js"></script>
+<script>
+    //变量作用域，变量作用范围可用
+    // {
+    //     var name="fanjiantao";
+    //     console.log(name);
+    // }
+    // console.log(name)
+
+    //2.没有块级作用域引起的问题
+    // var func;
+    // if(true){
+    //   //内部定义的东西
+    //   var name = 'shy';
+    //   func = function () {
+    //     console.log(name)
+    //   }
+    // }
+    // //外部也能访问
+    // console.log(name);
+    // func()
+
+    //3.没有块级作用域引起的问题：for的块级
+    //闭包解决问题（函数具有作用域）
+    //  var btns=document.getElementsByTagName('button');
+    //  for(var i=0;i<btns.length;i++){
+    //      (function (i) {
+    //          btns[i].addEventListener('click',function(){
+    //              console.log('第'+(i+1)+'个按钮点击！');
+    //          })
+    //      })(i)
+    //
+    //  }
+
+    //4.使用块级作用域
+    const btns = document.getElementsByTagName("button");
+    for (let i = 0; i < btns.length; i++) {
+        btns[i].addEventListener('click', function () {
+            console.log('第' + (i + 1) + '个按钮点击！');
+        })
+    }
+
+</script>
+</body>
+</html>

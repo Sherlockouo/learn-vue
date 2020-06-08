@@ -1,49 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>study02</title>
-  <style>
-    .active {
-      color: red;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>study02</title>
+    <style>
+        .active {
+            color: red;
+        }
+    </style>
 </head>
 <body>
 
 <div id="app">
-  <!--  v-bind-->
-  <img v-bind:src="img">
-  <!--  语法糖 ':'-->
-  <a :href="url ">url</a>
-  <!--当类里的属性为true，则绑定到类中，false则不绑定-->
-  <!--普通类与动态绑定类可以共存-->
-  <h2 class="title" v-bind:class="{active:isActive,line:isLine}">{{sms}}</h2>
-  <h2  v-bind:class="getClasses()">{{sms}}</h2>
-  <button v-on:click="sw">按钮</button>
+    <!--  v-bind-->
+    <img v-bind:src="img">
+    <!--  语法糖 ':'-->
+    <a :href="url ">url</a>
+    <!--当类里的属性为true，则绑定到类中，false则不绑定-->
+    <!--普通类与动态绑定类可以共存-->
+    <h2 class="title" v-bind:class="{active:isActive,line:isLine}">{{sms}}</h2>
+    <h2 v-bind:class="getClasses()">{{sms}}</h2>
+    <button v-on:click="sw">按钮</button>
 
 </div>
 
 <script src="../../src/vue.min.js"></script>
 <script>
-  const app = new Vue({
-    el: "#app",
-    data: {
-      sms: "hi～",
-      url: "http://www.4kbizhi.com/",
-      img: "http://www.4kbizhi.com/d/file/2020/05/10/small212507Uhvr21589117107.jpg",
-      isActive: true,
-      isLine: false
-    }, methods: {
-      sw: function () {
-        this.isActive = !this.isActive;
-        console.log('clicked')
-      },
-      getClasses:function () {
-          return{active:this.isActive,line:this.isLine}
-      }
-    }
-  })
+    const app = new Vue({
+        el: "#app",
+        data: {
+            sms: "hi～",
+            url: "http://www.4kbizhi.com/",
+            img: "http://www.4kbizhi.com/d/file/2020/05/10/small212507Uhvr21589117107.jpg",
+            isActive: true,
+            isLine: false
+        }, methods: {
+            sw: function () {
+                this.isActive = !this.isActive;
+                console.log('clicked')
+            },
+            getClasses: function () {
+                return {active: this.isActive, line: this.isLine}
+            }
+        }
+    })
 </script>
 
 </body>

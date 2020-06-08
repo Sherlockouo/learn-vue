@@ -1,24 +1,28 @@
-table{
-  border: 1px solid aquamarine;
-  border-collapse: collapse;
-  border-spacing: 0;
+table {
+    border: 1px solid aquamarine;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
-th,td{
-  padding: 8px 16px;
-  border: 1px solid #9ae2d8;
-  text-align: left;
+
+th, td {
+    padding: 8px 16px;
+    border: 1px solid #9ae2d8;
+    text-align: left;
 }
-th{
-  background-color: #71b3d7;
-  color: black;
-  font-weight: 600;
+
+th {
+    background-color: #71b3d7;
+    color: black;
+    font-weight: 600;
 }
-#rm{
-  color: #20495e;
-  border-radius: 47px;
-  background: rgba(224, 110, 158, 0.5);
+
+#rm {
+    color: #20495e;
+    border-radius: 47px;
+    background: rgba(224, 110, 158, 0.5);
 }
-button{
-  border-radius: 10px;
-  background: #eca83f;
+
+button {
+    border-radius: 10px;
+    background: #eca83f;
 }

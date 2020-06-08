@@ -10,22 +10,22 @@
 </div>
 <script src="../../src/vue.min.js"></script>
 <script>
-    const app=new Vue({
-        el:'#app',
-        data:{
-books:[
-    {id:111,name:'计算机组成原理',price:98},
-    {id:112,name:'java web',price:113},
-    {id:113,name:'软件需求工程',price:56},
-    {id:114,name:'大学英语',price:33},
+    const app = new Vue({
+        el: '#app',
+        data: {
+            books: [
+                {id: 111, name: '计算机组成原理', price: 98},
+                {id: 112, name: 'java web', price: 113},
+                {id: 113, name: '软件需求工程', price: 56},
+                {id: 114, name: '大学英语', price: 33},
 
-]
+            ]
         },
-        computed:{
-            totalPrice:function(){
-                let result=0
-                for(let i=0;i<this.books.length;i++){
-                    result +=this.books[i].price
+        computed: {
+            totalPrice: function () {
+                let result = 0
+                for (let i = 0; i < this.books.length; i++) {
+                    result += this.books[i].price
                 }
                 return result
             }

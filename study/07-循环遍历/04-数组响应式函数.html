@@ -1,50 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
 <div id="app">
-  <ul>
-    <li v-for="item in letters" :key="item">{{item}}</li>
-  </ul>
-  <button @click="btnClick">按钮</button>
+    <ul>
+        <li v-for="item in letters" :key="item">{{item}}</li>
+    </ul>
+    <button @click="btnClick">按钮</button>
 </div>
 
 <script src="../../src/vue.min.js"></script>
 <script>
-  const app = new Vue({
-    el:"#app",
-    data:{
-      letters:['a','b','c','d']
-    },
-    methods:{
-      btnClick(){
-      // 1.push 尾插
-        //this.letters.push('qwe')
-        // 2.pop 删除最后一个元素
-       // this.letters.pop()
-        // 3.shift删除第一个元素
-       // this.letters.shift()
-        // 4.unshift 在数组开头添加元素
-       // this.letters.unshift('ewq','eda')
-        //5.sort()
-        //6.reverse()
+    const app = new Vue({
+        el: "#app",
+        data: {
+            letters: ['a', 'b', 'c', 'd']
+        },
+        methods: {
+            btnClick() {
+                // 1.push 尾插
+                //this.letters.push('qwe')
+                // 2.pop 删除最后一个元素
+                // this.letters.pop()
+                // 3.shift删除第一个元素
+                // this.letters.shift()
+                // 4.unshift 在数组开头添加元素
+                // this.letters.unshift('ewq','eda')
+                //5.sort()
+                //6.reverse()
 
-        //7.splice(,,) 插入/删除/替换 参数：1:操作的起始位置 2:0替换 n(非零)则为删除n个 3:添加，或者替换的元素
-        this.letters.splice(2,0,'qwe','ret')
+                //7.splice(,,) 插入/删除/替换 参数：1:操作的起始位置 2:0替换 n(非零)则为删除n个 3:添加，或者替换的元素
+                this.letters.splice(2, 0, 'qwe', 'ret')
 
-        //按照索引来修改
-        //this.letters[0] = 'bbbb' //修改失败
-        this.letters.splice(0,0,'aaaa')
-        //set(修改对象，位置，值)
-        Vue.set(this.letters,0,'aaaa')
+                //按照索引来修改
+                //this.letters[0] = 'bbbb' //修改失败
+                this.letters.splice(0, 0, 'aaaa')
+                //set(修改对象，位置，值)
+                Vue.set(this.letters, 0, 'aaaa')
 
-      }
+            }
 
-    }
-  })
+        }
+    })
 </script>
 </body>
 </html>
