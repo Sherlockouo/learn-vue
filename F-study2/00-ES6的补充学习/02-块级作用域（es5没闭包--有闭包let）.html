@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>btn1</button>
+<button>btn2</button>
+<button>btn3</button>
+<button>btn4</button>
+
+
+<script>
+
+    //3.没有块级作用域引起的问题：for的块级
+    //闭包可以解决，因为函数有作用域
+    var btns = document.getElementsByTagName('button')
+    for (var i = 0; i < btns.length; i++) {
+        //打印的i为4，因为函数在点击的时候，i已经被用过了
+        // btns[i].addEventListener('click',function () {
+        //   console.log('第'+i+'个按钮被点击')
+        (function (i) {
+            btns[i].addEventListener('click', function () {
+                console.log('第' + i + '个按钮被点击')
+            })
+        })(i)
+    }
+</script>
+</body>
+</html>

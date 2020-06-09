@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>const的使用</title>
+</head>
+<body>
+<script src="../../src/vue.min.js"></script>
+<script>
+    // 1，注意1，一旦const修饰的标识符被赋值后，不可修改
+    // const name='why'
+    // namw='qwer'
+
+    //2,注意2 ：在定义const标识符时，必须进行赋值 const name;不被允许
+    // var name;
+    // name='abc';
+    // const name2='why'
+
+
+    //3注意3：常量的含义是指向对象不能修改，但是可以改变对象内部属性
+    const obj={
+        name:'why',
+        height:188,
+        weight:65,
+    }
+    console.log(obj);
+    obj.height=160;
+    console.log(obj);
+</script>
+</body>
+</html>
