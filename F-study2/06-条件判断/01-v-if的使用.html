@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-if的使用</title>
+</head>
+<body>
+<div id="app">
+    <h2 v-if="isMse">{{message}}</h2>
+    <button @click="change">隐藏</button>
+    <button @click="change2">显示</button>
+</div>
+<script src="../../src/vue.min.js"></script>
+<script>
+    const app=new Vue({
+        el:'#app',
+        data:{
+            message:'你好呀',
+            isMse:true
+        },
+        methods:{
+            change(){
+                this.isMse=false
+            },
+            change2(){
+                this.isMse=true
+            }
+        }
+    })
+</script>
+</body>
+</html>

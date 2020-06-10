@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on的参数问题</title>
+</head>
+<body>
+<div id="app">
+<!--    演示事件调用方法没有参数-->
+    <button @click="btn1()">按钮1</button>
+    <button @click="btn1">按钮2</button>
+
+<!--    在定义事件时，写方法省略了小括号，但是方法本事是需要参数，这个时候vue会将
+浏览器生成的event事件对象作为参数传回到方法中-->
+<!--    演示事件调用拥有一个参数-->
+    <button @click="btn2">按钮3</button>
+
+<!--    方法定义时，我们需要event对象，同时也需要其他参数-->
+    <button @click="btn3(123,event)">按钮4</button>
+
+<!--    在调用方法时，如何手动获取浏览器的event对象-->
+    <button @click="btn3(bb,$event)">按钮5</button>
+</div>
+<script src="../../src/vue.min.js"></script>
+<script>
+    const app=new Vue({
+        el:'#app',
+        data:{
+            message:'你好呀',
+            event:'sdfsdf',
+            bb:'123'
+        },
+        methods:{
+            btn1(){
+                console.log('按钮1')
+            },
+            btn2(a){
+                console.log('这个数字是',a)
+            },
+            btn3(b,event){
+                console.log('这个是两个参数的方法',event,b)
+            }
+        }
+    })
+</script>
+</body>
+</html>

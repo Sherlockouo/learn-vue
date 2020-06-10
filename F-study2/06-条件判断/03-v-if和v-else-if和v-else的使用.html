@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+<!--    <h2 v-if="sorce>=90">优秀</h2>-->
+<!--    <h2 v-else-if="sorce>=80">良好</h2>-->
+<!--    <h2 v-else-if="sorce>=70">不错</h2>-->
+<!--    <h2 v-else-if="sorce>=60">及格</h2>-->
+<!--    <h2 v-else style="color: red">不及格</h2>-->
+    <h2>{{check}}</h2>
+    <button @click="change">两级反转</button>
+</div>
+<script src="../../src/vue.min.js"></script>
+<script>
+    const app=new Vue({
+        el:'#app',
+        data:{
+            sorce:95
+        },
+        methods:{
+            change(){
+                this.score= this.score-10
+            }
+        },
+        computed:{
+            check(){
+                let message='';
+                if(this.sorce>=90)
+                {
+                    message='优秀'
+                }
+                else if(this.sorce>=80)
+                {
+                    message='良好'
+                }
+                else if(this.sorce>=70)
+                {
+                    message='不错哦'
+                }
+                else if(this.sorce>=60)
+                {
+                    message='及格'
+                }
+                else
+                {
+                    message='不及格'
+                }
+                   return message
+            }
+        }
+    })
+</script>
+</body>
+</html>
