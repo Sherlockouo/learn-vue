@@ -1,0 +1,35 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+table{
+  border: 2px solid #20495e;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+th,td{
+  padding: 8px 16px;
+  border: 1px solid #20495e;
+}
+th{
+  background-color: #f7f7f7;
+  color:#71b3d7;
+  text-shadow: #20495e 1px 1px 3px;
+  font-weight: 600;
+}
+button.add{
+  width: 20px;
+}
+button{
+  width: 60px;
+}
+
+#rm {
+  color: #20495e;
+  border-radius: 47px;
+  background: rgba(224, 110, 158, 0.5);
+}
+button {
+  border-radius: 10px;
+  background: #eca83f;
+}
