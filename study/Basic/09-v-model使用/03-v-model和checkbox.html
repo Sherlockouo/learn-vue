@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <label for="lisence">
+        <input type="checkbox" id="lisence">同意协议
+    </label>
+    <br>
+    <input type="checkbox" value="dota" v-model="games">dota
+    <input type="checkbox" value="ow" v-model="games">ow
+    <input type="checkbox" value="lol" v-model="games">lol
+    <input type="checkbox" value="pubg" v-model="games">pubg
+    <h1>games:{{games}}</h1>
+</div>
+
+<script src="../../../src/vue.min.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            games: []
+        }
+    })
+</script>
+</body>
+</html>

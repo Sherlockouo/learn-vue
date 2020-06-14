@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <button @click="btnClick">按钮1</button>
+    <button @click="btn2Click(123)">按钮2</button>
+    <button @click="btn2Click">按钮2-2</button>
+    <!--  vue会将浏览器默认的事件作为参数传过来-->
+    <!--  altKey: false
+    bubbles: true
+    button: 0
+    buttons: 0
+    cancelBubble: false
+    cancelable: true
+    clientX: 38
+    clientY: 44
+    composed: true
+    ctrlKey: false
+    currentTarget: null
+    defaultPrevented: false
+    detail: 1
+    eventPhase: 0
+    fromElement: null
+    isTrusted: true
+    layerX: 38
+    layerY: 44
+    metaKey: false
+    movementX: 0
+    movementY: 0
+    offsetX: 30
+    offsetY: 10
+    pageX: 38
+    pageY: 44
+    path: (6) [button, div#app, body, html, document, Window]
+    relatedTarget: null
+    returnValue: true
+    screenX: 38
+    screenY: 155
+    shiftKey: false
+    sourceCapabilities: InputDeviceCapabilities {firesTouchEvents: false}
+    srcElement: button
+    target: button
+    timeStamp: 919.3200000008801
+    toElement: button
+    type: "click"
+    view: Window {parent: Window, opener: null, top: Window, length: 0, frames: Window, …}
+    which: 1
+    x: 38
+    y: 44
+    __proto__: MouseEvent-->
+
+    <!--    当需要获取event对象的时候使用 $event获取浏览器事件-->
+    <button @click="btn3Click(13,$event)">按钮3</button>
+    <button>按钮4</button>
+</div>
+
+<script src="../../../src/vue.min.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: 'hello'
+        },
+        methods: {
+            btnClick() {
+                console.log("btnClick")
+            },
+            btn2Click(abc) {
+                console.log("btn2Clicked", abc)
+            },
+            btn3Click(abc, event) {
+                console.log("-----", abc, event);
+            }
+        }
+    })
+</script>
+</body>
+</html>

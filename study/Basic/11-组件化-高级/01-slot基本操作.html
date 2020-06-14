@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn><button>yes</button></cpn>
+  <cpn><span>s</span></cpn>
+  <cpn></cpn>
+  <cpn><button>wr</button></cpn>
+</div>
+
+<template id="cpn">
+  <div>
+    <h1>zujian</h1>
+<!--    <slot></slot>slot-->
+<!--    <button>but</button>-->
+<!--    //预留插槽，增加扩展性-->
+    <slot><button>默认</button></slot>
+  </div>
+</template>
+
+<script src="../../../src/vue.min.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {},
+    components: {
+      cpn: {
+        template: `#cpn`
+      }
+    }
+  })
+</script>
+</body>
+</html>

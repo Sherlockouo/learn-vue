@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--  vue出于性能考虑会将一些组件进行复用 input内容中的东西会被复用-->
+    <span v-if="isName">
+    <label for="usename">用户名</label>
+    <input type="text" id="usename" placeholder="用户名" key="username">
+  </span>
+    <span v-else>
+
+    <label for="email">邮箱</label>
+    <input type="text" id="email" placeholder="邮箱" key="email">
+  </span>
+
+    <button @click="isName = !isName">切换登录方式</button>
+</div>
+
+<script src="../../../src/vue.min.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            isName: true
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <cpn></cpn>
+    <cpn></cpn>
+    <cpn></cpn>
+
+</div>
+
+<template id="cpn">
+    <div>
+        <h1>当前计数：{{counter}}</h1>
+        <button @click="incre">+</button>
+        <button @click="decre">-</button>
+    </div>
+</template>
+
+<script src="../../../src/vue.min.js"></script>
+<script>
+
+
+    Vue.component('cpn', {
+        template: `#cpn`,
+        data() {
+            return {
+                counter: 0
+            }
+        },
+        methods: {
+            incre() {
+                this.counter++
+            },
+            decre() {
+                this.counter--
+            }
+        }
+    })
+
+    const app = new Vue({
+        el: "#app",
+        data: {
+            title: '这是标题'
+        }
+    })
+</script>
+</body>
+</html>

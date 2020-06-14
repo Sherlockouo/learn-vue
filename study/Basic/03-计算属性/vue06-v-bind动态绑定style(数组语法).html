@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h2>{{getFull()}}</h2>
+    <h2>{{full}}</h2>
+</div>
+
+<script src="../../../src/vue.min.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: 'message',
+            first: 'fir',
+            second: 'sec'
+        },
+        computed: {
+            full: function () {
+                return this.first + ' ' + this.second
+            }
+        },
+        methods: {
+            getFull: function () {
+                return this.first + this.second;
+            }
+        }
+    })
+</script>
+</body>
+</html>
