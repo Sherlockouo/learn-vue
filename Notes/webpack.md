@@ -79,7 +79,9 @@ npm i webpack-cli -g
    const path = require('path')
    
    module.exports ={
+   //入口
      entry:'./src/main.js',
+   //输出
      output:{
        //拿到绝对路径 wc 是两个下划线 。。。
        path:path.resolve(__dirname,'dist'),
@@ -92,4 +94,63 @@ npm i webpack-cli -g
 
    
 
-3. 
+3. 安装loader ~~可以用来处理不同的文件~~
+
+![image-20200614213028965](https://cdn.jsdelivr.net/gh/Sherlockouo/PicBase/img/learn/image-20200614213028965.png)
+
+安装cssloader
+
+```
+npm install --save-dev style-loader css-loader
+```
+
+
+
+作用：
+
+> 将css文件作为模块，进行打包
+
+```
+module:{
+           rules: [
+         {
+           test: /\.css$/,
+           //webpack使用多个loader的时候，从右往左读的
+             use: [
+             'style-loader',
+             'css-loader',
+           ],
+           },
+     ],
+   },
+```
+
+4.图片处理：
+
+![截屏2020-06-14 下午10.19.40](https://cdn.jsdelivr.net/gh/Sherlockouo/PicBase/img/learn/截屏2020-06-14 下午10.19.40.png)
+
+```
+  
+   //output中添加 url匹配图片
+    publicPath:'dist/'
+    
+    
+  {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          {
+            // loader: 'file-loader',
+            loader:'url-loader',
+            options: {
+              //当加载的图片，小于limit的时候，会将图片编译成base64的字符串形式
+              //当加载的图片 大于limit的时候，需要使用file-loader来加载
+              limit: 13000,
+              //对文件进行重命名
+               name:'img/[name].[hash:8].[ext]'
+            }
+          }
+        ],
+      },
+```
+
+![截屏2020-06-14 下午10.22.20](https://cdn.jsdelivr.net/gh/Sherlockouo/PicBase/img/learn/截屏2020-06-14 下午10.22.20.png)
