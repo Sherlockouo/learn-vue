@@ -37,7 +37,7 @@ npm i webpack-cli -g
 
 **打包方式**
 
-1. webpack  
+1. **webpack**  
 
    ```
    webpack ./src/main.js
@@ -45,7 +45,7 @@ npm i webpack-cli -g
 
    
 
-2. npm run build
+2. **npm** run build
 
    需要配置package.json 和 webpack.config.json
 
@@ -94,7 +94,7 @@ npm i webpack-cli -g
 
    
 
-3. 安装loader ~~可以用来处理不同的文件~~
+3. **安装loader** ~~可以用来处理不同的文件~~
 
 ![image-20200614213028965](https://cdn.jsdelivr.net/gh/Sherlockouo/PicBase/img/learn/image-20200614213028965.png)
 
@@ -125,7 +125,7 @@ module:{
    },
 ```
 
-4.图片处理：
+4.**图片处理：**
 
 ![截屏2020-06-14 下午10.19.40](https://cdn.jsdelivr.net/gh/Sherlockouo/PicBase/img/learn/截屏2020-06-14 下午10.19.40.png)
 
@@ -154,3 +154,193 @@ module:{
 ```
 
 ![截屏2020-06-14 下午10.22.20](https://cdn.jsdelivr.net/gh/Sherlockouo/PicBase/img/learn/截屏2020-06-14 下午10.22.20.png)
+
+5.将ES6转换为ES5,babel-loader
+
+> 将ES6转换为ES5以更好的兼容浏览器
+
+```
+ npm install -D babel-loader @babel/core @babel/preset-env webpack
+
+ 
+ 
+ {
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      },
+```
+
+### 3.webpack配置Vue
+
+```
+npm install vue --save
+```
+
+vue有两种版本：
+
+1. runtime only：代码中不允许有tempalte
+2. runtime compiler：可以有template
+
+加上下面这些就可以加载vue文件了
+
+```
+//15.x.x版本之后都需要使用这个插件
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
+
+rules:[
+  {			
+        test: /\.vue$/,
+        use: ['vue-loader']
+      },
+]
+
+resolve:{
+    alias:{
+    //import vue ｜vue.esm.js 能够进行 runtime compiler
+        'vue$':'vue/dist/vue.esm.js'
+    }
+  },
+  plugins: [
+    // 请确保引入这个插件！
+    new VueLoaderPlugin()
+  ]
+```
+
+目录结构
+
+![截屏2020-06-15 上午11.31.43](https://cdn.jsdelivr.net/gh/Sherlockouo/PicBase/img/learn/截屏2020-06-15 上午11.31.43.png)
+
+1. 将组件单独抽取到vue中来写
+2. 在main.js中注册
+3. 最后在html中进行使用
+
+Vue文件就被切分为单独的文件了
+
+```
+<template>
+  <div>
+    <h1>{{message}}</h1>
+    <button @click="btc">anniu</button>
+    <cpn></cpn>
+  </div>
+</template>
+
+<script>
+  import cpn from './cpn.vue'
+
+  export default {
+    name: "App",
+    data(){
+      return {
+        message: 'msg...'
+      }
+    },
+    methods: {
+      btc() {
+        console.log(this.message)
+      }
+    },
+    components:{
+      cpn
+    }
+  }
+
+</script>
+
+<style scoped>
+  .title{
+    color: #71b3d7;
+  }
+</style>
+```
+
+只需要在main.js中引用一下就可以了 
+
+```
+//1。使用commonjs的模块化开发规范
+const {add, mul} = require('./mathUtils.js')
+
+console.log(add(1, 3))
+console.log(mul(1, 3))
+
+//2.使用ES6的模块化规范开发
+import * as aa from "./info.js"
+
+console.log(aa.name)
+console.log(aa.age)
+console.log(aa.height)
+//3.依赖css
+require('../css/nor.css')
+
+//4.依赖less文件
+require('../css/typical.less')
+
+//5.使用vue进行开发
+import Vue from 'vue'
+
+// import App from '../vue/app.js'
+//这里使用
+import App from '../vue/App.vue'
+new Vue({
+  el: '#app',
+  template:'<App/>',
+  components:{
+    App
+  }
+})
+```
+
+4.将html打包进dist文件夹
+
+```
+npm install html-webpack-plugin
+```
+
+在webpack.config.json中配置
+
+```
+const html = require('html-webpack-plugin')
+
+plugins:{
+ new html({
+        template:'index.html'
+      }),
+}
+```
+
+
+
+5.压缩js 使用这一个插件的时候，上一个插件会被覆盖掉
+
+**开发阶段不需要配置**
+
+```
+npm install uglifyjs-webpack-plugin
+```
+
+打包js放到服务器
+
+```
+const uglifyJsPlugin = require('uglifyjs-webpack-plugin')
+
+new uglifyJsPlugin()
+```
+
+6.webpack-dev-server
+
+cao 命令行敲不行，然后我就直接改package.json 再导入 	
+
+```
+npm install webpack-dev-server --save-dev //黑苹果安装失败。。。
+```
+
+
+
+
+

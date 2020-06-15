@@ -8,7 +8,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
     //公共url匹配图片
-    publicPath:'dist/'
+    publicPath: 'dist/'
   },
   module: {
     rules: [
@@ -35,15 +35,25 @@ module.exports = {
         use: [
           {
             // loader: 'file-loader',
-            loader:'url-loader',
+            loader: 'url-loader',
             options: {
               //当加载的图片，小于limit的时候，会将图片编译成base64的字符串形式
               //当加载的图片 大于limit的时候，需要使用file-loader来加载
               limit: 1300,
-              name:'img/[name].[hash:8].[ext]'
+              name: 'img/[name].[hash:8].[ext]'
             }
           }
         ],
+      },
+      {
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
       },
     ],
   },
