@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  // setTimeout(()=>{
+  //   console.log(this)
+  // },1000)
+
+  //lamda 的this 在向外作用域中，一层一层的找this，直到this有定义
+  // const obj = {
+  //   a(){
+  //     setTimeout(function(){
+  //       // 默认会把window作为参数传进来
+  //       console.log(this)
+  //     })
+  //
+  //     setTimeout(()=>{
+  //       // 这个this为 当前对象 obj
+  //       console.log(this)
+  //     })
+  //
+  //   }
+  // }
+  //
+  // obj.a()
+
+  const obj = {
+    a() {
+      setTimeout(function () {
+        // 默认会把window作为参数传进来
+        setTimeout(function () {
+          console.log(this)
+        })
+        setTimeout(() => {
+          //因为是使用的function 而this指的是 默认传入的window
+          // 这个this为 window
+          console.log(this)
+        })
+      })
+
+
+      setTimeout(()=> {
+        setTimeout(function () {
+          // 默认会把window作为参数传进来
+          //this == window
+          console.log(this)
+        })
+
+        setTimeout(() => {
+          //向外找一层，就是obj了
+          //所以 这个this为 obj
+          console.log(this)
+        })
+
+      })
+
+    }
+  }
+
+  obj.a()
+</script>
+</body>
+</html>
