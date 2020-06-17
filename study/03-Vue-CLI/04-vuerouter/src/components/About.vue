@@ -8,6 +8,9 @@
 <script>
   export default {
     name: "about"
+    // created() {
+    //   document.title = 'about'
+    // }
   }
 </script>
 

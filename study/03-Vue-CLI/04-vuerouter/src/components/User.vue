@@ -3,6 +3,11 @@
     <h1>User信息</h1>
     <h3 v-for="(value,key) in user">{{key}}:{{value}}</h3>
     <h2>{{username}}</h2>
+<!--    <router-link tag="button" to="/profile">profile</router-link>-->
+<!--    <router-link tag="button" :to="{path:'/profile',query:{name:'leet',age:'14'}}">profile</router-link>-->
+
+    <router-view></router-view>
+
   </div>
 </template>
 

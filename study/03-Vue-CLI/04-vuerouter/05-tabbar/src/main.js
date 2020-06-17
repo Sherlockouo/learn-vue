@@ -4,10 +4,7 @@ import router from './router'
 
 Vue.config.productionTip = false
 
-// Vue.prototype.test = function () {
-//   console.log('test')
-// }
-
+/* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,

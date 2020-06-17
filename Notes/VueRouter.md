@@ -218,4 +218,177 @@ js文件夹中
 
    第三方提供的服务
 
-### 5.
+### 5.懒加载 
+
+ ![截屏2020-06-17 上午10.32.54](https://cdn.jsdelivr.net/gh/Sherlockouo/PicBase/img/learn/截屏2020-06-17 上午10.32.54.png)
+
+![截屏2020-06-17 上午10.44.35](https://cdn.jsdelivr.net/gh/Sherlockouo/PicBase/img/learn/截屏2020-06-17 上午10.44.35.png)
+
+```
+
+const Home = ()=>import('../components/Home')
+const About = ()=>import('../components/About')
+
+  routes: [
+    {
+      path: '/',
+      redirect:'/home'
+    },
+    {
+      //一个path对应一个组件
+      path: '/home',
+      name: Home,
+      component: Home
+    },
+    {
+      path: '/about',
+      name:About,
+      component: About
+    }
+    ]
+```
+
+### 6.嵌套路由
+
+![截屏2020-06-17 上午10.49.29](https://cdn.jsdelivr.net/gh/Sherlockouo/PicBase/img/learn/截屏2020-06-17 上午10.49.29.png)
+
+```
+   const News = ()=>import('../components/HomeNews')
+	 const Message = ()=>import('../components/HomeMessage')
+
+   {
+      //一个path对应一个组件
+      path: '/home',
+      name: Home,
+      component: Home,
+      //子路由路径，可以不用写 /
+      children: [
+        {
+        //默认路径
+          path: '',
+          //redirect 不加 /
+          redirect:'news'
+        },
+        {
+          path:'news',
+          component:News
+        },
+        {
+          path: 'message',
+          component:Message
+        }
+      ]
+    },
+```
+
+```
+<template>
+  <div>
+    <h1>this is home</h1>
+    <h3>this is the content of the home</h3>
+		//在父组件中加入这些个东西 ，路径要写全
+    <router-link to="/home/news">新闻</router-link>
+    <router-link to="/home/message">消息</router-link>
+    <router-view/>
+
+  </div>
+</template>
+```
+
+### 7.参数传递
+
+
+
+![截屏2020-06-17 上午11.29.49](/Users/wdf/Library/Application Support/typora-user-images/截屏2020-06-17 上午11.29.49.png)
+
+```
+ 
+ <router-link tag="button" :to="{path:'/profile',query:{name:'leet',age:'14'}}">profile</router-link>
+ <router-view></router-view>
+ 
+```
+
+Profile中：
+
+```
+<template>
+  <div>
+    <h1>Profile</h1>
+    <h2>{{this.$route.query.name}}</h2>
+    <h2>{{this.$route.query.age}}</h2>
+  </div>
+</template>
+
+```
+
+### 8.全局导航守卫
+
+1. 方式一：在组件初始化 回调created()的时候，改掉document的title
+
+   ```
+     在组件中写上
+     created() {
+       // 古老方式改title
+       //   document.title='首页'
+         console.log('created!')
+       },
+   ```
+
+   
+
+2. 方式二：在路由中配置meta，更为方便简洁
+
+   ```
+   {
+         //一个path对应一个组件
+         path: '/home',
+         name: Home,
+         meta: {
+         	//配置title
+           title: '首页'
+         },
+         component: Home,
+         children: [
+           // {
+           //   path: '',
+           //   redirect: 'news'
+           // },
+           {
+             path: 'news',
+             meta: {
+               title: 'news'
+             },
+             component: News
+           },
+           {
+             path: 'message',
+             meta: {
+               title: 'message'
+             },
+             component: Message
+           }
+         ]
+       },
+   
+   router.beforeEach((to,from,next)=>{
+     document.title = to.meta.title
+     next()
+   })
+   ```
+
+   3.钩子
+
+   ![截屏2020-06-17 下午10.11.11](https://cdn.jsdelivr.net/gh/Sherlockouo/PicBase/img/learn/截屏2020-06-17 下午10.11.11.png)
+
+   1.  前置钩子
+      1.  
+   2.   后置钩子
+      1.  
+   3.  
+
+   ![截屏2020-06-17 下午10.13.27](/Users/wdf/Library/Application Support/typora-user-images/截屏2020-06-17 下午10.13.27.png)
+
+### 9.Vue周期
+
+![](https://upload-images.jianshu.io/upload_images/1102036-582b0953653a8e87.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp)
+
