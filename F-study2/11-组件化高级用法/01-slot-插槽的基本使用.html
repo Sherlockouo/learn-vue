@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <cpn><button>按钮</button></cpn>
+    <cpn></cpn>
+    <cpn><span>使用插槽显示</span></cpn>
+    <cpn></cpn>
+</div>
+<template id="cpn">
+    <div>
+        <h2>我是一个组件</h2>
+        <P>哈哈哈哈哈哈</P>
+<!--        可以设置插槽默认值-->
+        <slot></slot>
+    </div>
+</template>
+<script src="../../src/vue.min.js"></script>
+<script>
+    const app=new Vue({
+        el:'#app',
+        data:{
+            message:'你好呀'
+        },
+        components:{
+            cpn:{
+                template:'#cpn'
+            }
+        }
+    })
+</script>
+</body>
+</html>
