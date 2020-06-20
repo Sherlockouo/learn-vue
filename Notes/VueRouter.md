@@ -392,3 +392,112 @@ Profile中：
 
 ![](https://upload-images.jianshu.io/upload_images/1102036-582b0953653a8e87.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp)
 
+### 10.keep-alive
+
+- **	Props**：	
+  - `include` - 字符串或正则表达式。只有名称匹配的组件会被缓存。
+  - `exclude` - 字符串或正则表达式。任何名称匹配的组件都不会被缓存。
+  - `max` - 数字。最多可以缓存多少组件实例。
+
+**用法**：
+
+`<keep-alive>` 包裹动态组件时，会缓存不活动的组件实例，而不是销毁它们。和 `<transition>` 相似，`<keep-alive>` 是一个抽象组件：它自身不会渲染一个 DOM 元素，也不会出现在组件的父组件链中。
+
+当组件在 `<keep-alive>` 内被切换，它的 `activated` 和 `deactivated` 这两个生命周期钩子函数将会被对应执行。
+
+> 在 2.2.0 及其更高版本中，`activated` 和 `deactivated` 将会在 `<keep-alive>` 树内的所有嵌套组件中触发。
+
+```
+<!-- 基本 -->
+<keep-alive>
+  <component :is="view"></component>
+</keep-alive>
+
+<!-- 多个条件判断的子组件 -->
+<keep-alive>
+  <comp-a v-if="a > 1"></comp-a>
+  <comp-b v-else></comp-b>
+</keep-alive>
+
+<!-- 和 `<transition>` 一起使用 -->
+<transition>
+  <keep-alive>
+    <component :is="view"></component>
+  </keep-alive>
+</transition>
+```
+
+- > 2.1.0 新增
+
+  `include` 和 `exclude` prop 允许组件有条件地缓存。二者都可以用逗号分隔字符串、正则表达式或一个数组来表示：
+
+  ```
+  <!-- 逗号分隔字符串 -->
+  <keep-alive include="a,b">
+    <component :is="view"></component>
+  </keep-alive>
+  
+  <!-- 正则表达式 (使用 `v-bind`) -->
+  <keep-alive :include="/a|b/">
+    <component :is="view"></component>
+  </keep-alive>
+  
+  <!-- 数组 (使用 `v-bind`) -->
+  <keep-alive :include="['a', 'b']">
+    <component :is="view"></component>
+  </keep-alive>
+  ```
+
+  匹配首先检查组件自身的 `name` 选项，如果 `name` 选项不可用，则匹配它的局部注册名称 (父组件 `components` 选项的键值)。匿名组件不能被匹配。
+
+- **`max`**
+
+  > 2.5.0 新增
+
+  最多可以缓存多少组件实例。一旦这个数字达到了，在新实例被创建之前，已缓存组件中最久没有被访问的实例会被销毁掉。
+
+  ```
+  <keep-alive :max="10">
+    <component :is="view"></component>
+  </keep-alive>
+  ```
+
+  `<keep-alive>` 不会在函数式组件中正常工作，因为它们没有缓存实例。
+
+### 11.小知识点
+
+**静态资源路径取别名：**
+
+1. 在webpack.base.config.js中配置resolve
+
+   ```
+     resolve: {
+       extensions: ['.js', '.vue', '.json'],
+       alias: {
+         '@': resolve('src'),
+         'assets':resolve('src/assets'),
+         'components':resolve('src/components')
+       }
+     },
+   ```
+
+   
+
+2. 然后在import中使用
+
+   ```
+   import TabBar from "@/components/tabbar/TabBar";
+   import TabBarItem from "@/components/tabbar/TabBarItem";
+   ```
+
+   
+
+3. 图片资源中使用
+
+   ```
+     <img slot="item-icon" src="~assets/img/tabbar/internationalunclick.png" alt="">
+     <img slot="item-icon-active" src="~assets/img/tabbar/internationalclicked.png" alt="">
+          
+   ```
+
+   
