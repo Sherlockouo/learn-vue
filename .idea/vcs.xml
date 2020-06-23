@@ -2,5 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/study/03-Vue-CLI/08-axios/03-gitmall" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/study/03-Vue-CLI/08-axios/HYMall" vcs="Git" />
   </component>
 </project>
