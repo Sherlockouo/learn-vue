@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  new Promise((resolve, reject) => {
+    setTimeout(function () {
+      reject('Error Data!')
+    },1000)
+  }).then(data=> {
+    console.log(data);
+  },error=>{
+    console.log(error)
+  })
+</script>
+</body>
+</html>

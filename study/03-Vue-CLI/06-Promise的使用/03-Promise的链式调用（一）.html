@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  new Promise((resolve, reject) => {
+    setTimeout(()=>{
+      resolve()
+    },1000)
+      }
+  ).then(()=>{
+    console.log('hello world')
+    console.log('hello world')
+    console.log('hello world')
+    console.log('hello world')
+
+    return new Promise((resolve,reject)=>{
+      setTimeout(()=>{
+        resolve()
+      })
+    }).then(()=>{
+      console.log('shit')
+      console.log('shit')
+      console.log('shit')
+      console.log('shit')
+
+      return new Promise(((resolve, reject) => {
+        setTimeout(()=>{
+          resolve()
+        })
+      })).then(()=>{
+        console.log('wula')
+        console.log('wula')
+        console.log('wula')
+        console.log('wula')
+      })
+    })
+  })
+</script>
+</body>
+</html>
