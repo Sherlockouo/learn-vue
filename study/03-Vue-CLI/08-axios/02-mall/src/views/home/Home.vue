@@ -4,7 +4,7 @@
     <home-swiper :banners="banners"/>
     <recommend-view :recommends="recommends"/>
     <fashion-view/>
-    <tab-control :titles="titles"/>
+    <tab-control class="tab-control" :titles="titles"/>
     <ul>
       <li>列表</li>
       <li>列表</li>
@@ -126,7 +126,12 @@
       return {
         titles:['流行','精选','新款'],
         banners: [],
-        recommends: []
+        recommends: [],
+        goods:{
+          'pop':{page:0,list:[]},
+          'new':{page:0,list:[]},
+          'sell':{page:0,list:[]},
+        }
       }
     },
     components: {
@@ -146,5 +151,9 @@
   .nav-bar{
     position: fixed;
     z-index: 10;
+  }
+  .tab-control{
+    top: 44px;
+    position: sticky;
   }
 </style>
