@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件的数据存放</title>
+</head>
+<body>
+<div id="app">
+<cpn2></cpn2>
+</div>
+<template id="cpp2">
+    <div>
+        <h2>{{title}}</h2>
+        <P>我是一个内容，啦啦啦啦啦！</P>
+    </div>
+</template>
+<script src="../../../src/vue.min.js"></script>
+<script>
+    Vue.component('cpn2',{
+        template:'#cpp2',
+        data(){
+            return{
+                title:'abc'
+            }
+    }
+    })
+    const app=new Vue({
+        el:'#app',
+        data:{
+            message:'你好呀'
+        }
+    })
+</script>
+</body>
+</html>

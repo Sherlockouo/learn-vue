@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h2 v-if="isMse">{{message}}</h2>
+    <h2 v-else>{{name}}</h2>
+    <button @click="change">改变信息显示</button>
+
+</div>
+<script src="../../../src/vue.min.js"></script>
+<script>
+    const app=new Vue({
+        el:'#app',
+        data:{
+            message:'你好呀',
+            isMse:true,
+            name:'这是改变后的信息'
+        },
+        methods:{
+            change(){
+                this.isMse=false
+            },
+            change2(){
+                this.isMse=true
+            }
+        }
+    })
+</script>
+</body>
+</html>

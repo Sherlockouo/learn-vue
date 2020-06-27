@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>语法糖</title>
+</head>
+<body>
+<div id="app">
+   <cpn1></cpn1>
+    <cpn2></cpn2>
+</div>
+<script src="../../../src/vue.min.js"></script>
+<script>
+    //1，全局组件注册的语法糖
+    //1，注册全局组件
+    Vue.component('cpn1',{
+        template:`<div>
+            <h2>我是超级</h2>
+            <p>这事也很懂事就是的空间</p>
+             <p>这事也很懂事就是的空间</p>
+            </div>`
+    })
+    const app=new Vue({
+        el:'#app',
+        data:{
+            message:'你好呀'
+        },
+        components:{
+            'cpn2':{
+                template:`<div>
+            <h2>我是超级</h2>
+            <p>这里是局部组件语法堂</p>
+             <p>这里是局部组件语法堂</p>
+            </div>`
+            }
+        }
+    })
+</script>
+</body>
+</html>

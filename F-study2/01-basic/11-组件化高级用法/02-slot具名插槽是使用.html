@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>具名插槽</title>
+</head>
+<body>
+<div id="app">
+    <cpn>哈哈哈</cpn>
+    <cpn><span slot="right">这是修改右边的</span></cpn>
+    <cpn><button slot="center">中间按钮</button></cpn>
+</div>
+<template id="cpn">
+    <div>
+        <h2>我是一个组件</h2>
+        <P>哈哈哈哈哈哈</P>
+        <!--        可以设置插槽默认值-->
+        <slot><button>按钮</button></slot>
+        <slot name="left">左边</slot>
+        <slot name="center">中间</slot>
+        <slot name="right">右边</slot>
+    </div>
+</template>
+<script src="../../../src/vue.min.js"></script>
+<script>
+    const app=new Vue({
+            el:'#app',
+            data:{
+                message:'你好呀'
+            },
+            components:{
+                cpn:{
+                    template:'#cpn'
+                }
+            }
+        })
+</script>
+</body>
+</html>

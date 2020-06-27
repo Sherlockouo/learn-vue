@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>study</title>
+</head>
+<style>
+    [v-cloak] {
+        display: none;
+    }
+</style>
+<body>
+
+
+<script src="../../../src/vue.min.js"></script>
+<script>
+    //编程范式：
+    //编程范式：面向对象编程（第一公民：对象）/函数式编程（第一公民：函数）
+    const nums = [2, 4, 5, 5, 1, 7, 12]
+    //filter 中放入过滤函数，true则加入，false则丢弃 最后所有为true的为结果
+    // let newnums = nums.filter(function (n) {
+    //     return n > 10
+    // })
+    // console.log(newnums);
+    //
+    // //map 映射处理
+    // let n = nums.map(function (n) {
+    //     return n * 2;
+    // })
+    // console.log(n);
+    //
+    // let v = nums.reduce(function (pre, cur) {
+    //     return pre + cur
+    // }, 0)
+    // console.log("reduce:v = " + v);
+    //1.filter（）过滤数组 2.map（）处理数组 3.reduce（func(prevalue,curvalue),初始值）累加
+    let total = nums.filter(function (n) {
+        return n >= 10
+    }).map(function (n) {
+        return n * 2;
+    }).reduce(function (prevalue, n) {
+        return prevalue + n
+    }, 0)
+    console.log("total：" + total)
+</script>
+</body>
+</html>

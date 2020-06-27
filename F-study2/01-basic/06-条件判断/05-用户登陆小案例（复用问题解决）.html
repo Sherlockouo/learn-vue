@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>底层复用问题解决</title>
+</head>
+<body>
+<div id="app">
+    <span v-if="isuser">
+        <label for="username">用户登陆:</label>
+         <input type="text" id="username" placeholder="用户登陆" key="username">
+    </span>
+
+    <span v-else>
+        <label for="email">邮箱登陆:</label>
+         <input type="text" id="email" placeholder="邮箱登陆" key="email">
+    </span>
+
+    <button @click="isuser=!isuser">切换类型</button>
+</div>
+<script src="../../../src/vue.min.js"></script>
+<script>
+    const app=new Vue({
+        el:'#app',
+        data:{
+            isuser:true,
+            message:'你好呀'
+        }
+    })
+</script>
+</body>
+</html>

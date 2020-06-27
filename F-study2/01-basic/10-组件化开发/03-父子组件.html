@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>父子组件</title>
+</head>
+<body>
+<div id="app">
+    <cpn2></cpn2>
+</div>
+<script src="../../../src/vue.min.js"></script>
+<script>
+    //创建第一个组件
+    //子组件
+    const cpnC1=Vue.extend({
+        template:`<div>
+            <h2>我是超级</h2>
+            <p>这事也很懂事就是的空间</p>
+             <p>这事也很懂事就是的空间</p>
+            </div>`
+    })
+    //父组件
+    const cpnC2=Vue.extend({
+        template:`<div>
+            <h2>我是标题</h2>
+            <p>这应该是一个组件构造器</p>
+             <p>这应该是一个组件构造器</p>
+            <cpn1></cpn1>
+            </div>`,
+        components:{
+            cpn1:cpnC1
+        }
+    })
+    const app=new Vue({
+        el:'#app',
+        data:{
+            message:'你好呀'
+        },
+        components: {
+            cpn2:cpnC2
+        }
+    })
+</script>
+</body>
+</html>

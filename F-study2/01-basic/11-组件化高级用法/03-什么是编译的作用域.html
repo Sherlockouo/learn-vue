@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <cpn v-show="isShow"></cpn>
+    <cpn v-for="item in names"></cpn>
+</div>
+<template id="cpn">
+    <div>
+        <h2>我是一个子组件</h2>
+        <p>我是子组件的内容。哈哈哈</p>
+        <button v-show="isShow"></button>
+        <solt></solt>
+    </div>
+</template>
+<script src="../../../src/vue.min.js"></script>
+<script>
+    const app=new Vue({
+        el:'#app',
+        data:{
+            message:'你好呀',
+            isShow:true,
+            names:['天天','滴滴','开心果','海贼王']
+        },
+        components:{
+            cpn:{
+                template:'#cpn',
+                data(){
+                    return{
+                        isShow:false,
+                        names:['西游记','水浒传','三国','海贼王']
+                    }
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

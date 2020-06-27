@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作用域插槽</title>
+</head>
+<body>
+<div id="app">
+    <cpn></cpn>
+    <cpn>
+<!--        更改插槽内数据的样式-->
+        <template slot-scope="slot">
+            <span v-for="item in slot.data">{{item}}-</span>
+            <br>
+            <span>{{slot.data.join('-')}}</span>
+        </template>
+    </cpn>
+    <cpn></cpn>
+</div>
+<template id="cpn">
+    <div>
+<!--        设置插槽传入数据-->
+        <slot :data="names">
+       <ul>
+           <li v-for="item in names">{{item}}</li>
+       </ul>
+        </slot>
+    </div>
+</template>
+<script src="../../../src/vue.min.js"></script>
+<script>
+    const app=new Vue({
+        el:'#app',
+        data:{
+            message:'你好呀',
+            names:['天天','滴滴','开心果','海贼王']
+        },
+        components:{
+            cpn:{
+                template:'#cpn',
+                data(){
+                    return{
+                        names:['西游记','水浒传','三国','海贼王']
+                    }
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>
