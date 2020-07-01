@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //1.什么时候使用箭头函数  把一个函数作为另一个函数的参数时
+    // setTimeout(()=>{
+    //   console.log(this);
+    // },1000)
+
+
+    //结论：箭头函数的this引用的是最近作用域中的this
+    //向外层作用域中一层层查找，直到找到this
+    // const obj={
+    //     aaa() {
+    //         setTimeout(function () {
+    //             console.log(this);  //Windows对象
+    //         })
+    //         setTimeout(()=>{
+    //             console.log(this)  //obj对象
+    //         })
+    //     }
+    // }
+    // obj.aaa()
+
+    const obj={
+        aaa() {
+            setTimeout(function () {
+              setTimeout(function () {
+                  console.log(this);  //window
+              })
+                setTimeout(()=>{
+                    console.log(this)    //window
+                })
+            })
+
+            setTimeout(()=>{
+               setTimeout(function () {
+                   console.log(this)     //window
+               })
+                setTimeout(()=>{
+                    console.log(this)   //Object
+                })
+            })
+        }
+    }
+    obj.aaa()
+</script>
+</body>
+</html>
